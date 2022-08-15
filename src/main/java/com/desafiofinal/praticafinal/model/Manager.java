@@ -1,5 +1,6 @@
 package com.desafiofinal.praticafinal.model;
 
+import com.desafiofinal.praticafinal.dto.ManagerDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
@@ -22,4 +23,8 @@ public class Manager {
     @JsonIgnore
 
     private WareHouse wareHouse;
+
+    public Manager(ManagerDTO managerDTO) {
+        this.managerName = managerDTO.getManagerName();
+    }
 }

@@ -24,7 +24,7 @@ public class SectorController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> insertProduct(@RequestBody SectorDTO sectordto){
+    public ResponseEntity<Object> insertSector(@RequestBody SectorDTO sectordto){
         Sector response = sectorservice.saveSector(sectordto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
