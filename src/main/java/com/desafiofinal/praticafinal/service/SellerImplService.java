@@ -18,8 +18,7 @@ public class SellerImplService implements ISellerService{
     @Override
     public Seller saveSeller(SellerDTO seller) {
 
-            val sellerSaved = repo.save(new Seller(seller));
-            return sellerSaved;
+        return repo.save(new Seller(seller));
 
 
     }

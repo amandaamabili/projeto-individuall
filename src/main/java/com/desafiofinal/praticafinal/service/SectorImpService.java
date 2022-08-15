@@ -27,8 +27,7 @@ public class SectorImpService  implements  ISectorservice{
                .findById(sectordto.getIdWareHouse())
                .orElseThrow(() -> new ElementNotFoundException("Ware House does not exist"));
 
-    Sector sectorSaved = sectorRepo.save(buildSector(sectordto, wareHouse) );
-    return sectorSaved;
+        return sectorRepo.save(buildSector(sectordto, wareHouse) );
     }
 
     private Sector buildSector(SectorDTO sectordto, WareHouse wareHouse){

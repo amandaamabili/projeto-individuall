@@ -15,6 +15,7 @@ import java.util.List;
 public class WareHouseDTO {
 
     private long wareHouseId;
+    private long id_manager;
 //    private List<Sector> sectorList;
 
 //    public WareHouseDTO(WareHouse wareHouse) {

@@ -27,7 +27,7 @@ public class WareHouseImpService implements IWareHouseService{
 
 
             var manager = managerRepo
-                    .findById(wareHouseDTO.getWareHouseId())
+                    .findById(wareHouseDTO.getId_manager())
                     .orElseThrow(() -> new ElementNotFoundException("Manager does not exist"));
 
             WareHouse wareHouseSaved = wareHouseRepo.save(buildProduct(wareHouseDTO, manager));

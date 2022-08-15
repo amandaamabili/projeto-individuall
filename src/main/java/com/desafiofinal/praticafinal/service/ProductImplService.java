@@ -26,8 +26,7 @@ public class ProductImplService implements IProductService{
                 .findById(product.getIdSeller())
                 .orElseThrow(() -> new ElementNotFoundException("Seller does not exist"));
 
-        Product productSaved = productRepo.save(buildProduct(product, seller));
-        return productSaved;
+        return productRepo.save(buildProduct(product, seller));
     }
 
     private Product buildProduct(ProductDTO productDTO, Seller seller){
