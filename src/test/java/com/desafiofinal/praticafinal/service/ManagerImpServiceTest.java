@@ -30,7 +30,10 @@ public class ManagerImpServiceTest {
         when(managerRepo.save(any(Manager.class))).thenReturn(manager);
 
         var service = new ManagerImpService(managerRepo);
-        var managerCreated = service.saveManager(new ManagerDTO( 1L,"amanda", new WareHouse()));
+        var managerCreated = service.saveManager(new ManagerDTO(
+                1L,
+                "amanda",
+                new WareHouse()));
         Assertions.assertEquals(manager.getManagerId(), managerCreated.getManagerId());
         Assertions.assertEquals(manager.getManagerName(), managerCreated.getManagerName());
 
