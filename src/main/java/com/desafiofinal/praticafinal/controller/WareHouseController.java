@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/fresh-products/warehouse")
 
@@ -27,7 +29,7 @@ public class WareHouseController {
      * @return
      */
     @PostMapping
-    public ResponseEntity<Object> insertWareHouse(@RequestBody WareHouseDTO wareHouseDTO){
+    public ResponseEntity<Object> insertWareHouse(@RequestBody @Valid WareHouseDTO wareHouseDTO){
         try {
             var  response = service.saveWarehouse(wareHouseDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
