@@ -22,7 +22,12 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<Object> insertProduct(@RequestBody ProductDTO product){
-        Product response = service.saveProduct(product);
+        try{
+            Product response = service.saveProduct(product);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+
     }
 }

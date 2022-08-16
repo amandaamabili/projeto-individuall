@@ -19,5 +19,6 @@ public class ManagerImpService implements IManagerService{
     @Override
     public Manager saveManager(ManagerDTO managerDTO) {
         val managerSaved = managerRepo.save(new Manager(managerDTO));
-        return managerSaved;    }
+        return managerSaved;
+    }
 }
