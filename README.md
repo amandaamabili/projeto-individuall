@@ -68,14 +68,39 @@ O projeto desenvolvido utiliza as seguintes tecnologias:
 <a id="requisito"></a>
 ## Requisitos para rodar o projeto:
 
-* Docker
-* Docker-compose
+- [Docker](https://docker-docs.netlify.app/docker-for-mac/install/#where-to-go-next)
+- [Docker-compose](https://docker-docs.netlify.app/compose/install/)
 
-
+```bash
+#Após os requisitos instalados, é possível inicializar o projeto
+```
 <a id="setting"></a>
 ## Como utilizar:
 
+```bash
+# Clone o Repositório
+$ git clone https://github.com/amandaamabili/projeto-individuall.git
+```
+```bash
+# Após estar na pasta do projeto, escreva o comando no terminal para buildar o container
+$ docker-compose up -d --build
+```
+```bash
+# Inicialize o projeto na IDE na porta 8080
+```
 
+### Inicie as requisições no postman
+[Postman](#postman)
+
+### Passos adicionais
+```bash
+# Para pausar o container
+$ docker-compose down
+```
+```bash
+# Para subir o container novamente
+$ docker-compose up -d
+```
 <a id="requisicao"></a>
 ## Requisições
 
