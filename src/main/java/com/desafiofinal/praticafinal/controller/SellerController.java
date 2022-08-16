@@ -20,6 +20,11 @@ public class SellerController {
         this.service = service;
     }
 
+    /**
+     * Route used to insert into the database a new seller
+     * @param seller
+     * @return HTML Response 201: Created
+     */
     @PostMapping
     public ResponseEntity<Object> insertSeller(@RequestBody SellerDTO seller){
         try {

@@ -15,6 +15,11 @@ public class SellerImplService implements ISellerService{
         this.repo = repo;
     }
 
+    /**
+     *
+     * @param seller
+     * @return
+     */
     @Override
     public Seller saveSeller(SellerDTO seller) {
 

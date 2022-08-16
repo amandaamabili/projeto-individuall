@@ -19,6 +19,11 @@ public class ProductImplService implements IProductService{
         this.sellerRepo = sellerRepo;
     }
 
+    /**
+     *
+     * @param product
+     * @return
+     */
     @Override
     public Product saveProduct(ProductDTO product) {
 
@@ -29,6 +34,12 @@ public class ProductImplService implements IProductService{
         return productRepo.save(buildProduct(product, seller));
     }
 
+    /**
+     *
+     * @param productDTO
+     * @param seller
+     * @return
+     */
     private Product buildProduct(ProductDTO productDTO, Seller seller){
         return Product.builder()
                 .productType(productDTO.getProductType())

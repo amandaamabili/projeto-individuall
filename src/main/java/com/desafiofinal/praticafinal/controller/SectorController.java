@@ -23,6 +23,11 @@ public class SectorController {
         this.sectorservice = sectorservice;
     }
 
+    /**
+     * Route used to insert into the database a new sector
+     * @param sectordto
+     * @return HTML Response 201: Created
+     */
     @PostMapping
     public ResponseEntity<Object> insertSector(@RequestBody SectorDTO sectordto){
         try{

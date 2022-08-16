@@ -17,11 +17,21 @@ public class WareHouseImpService implements IWareHouseService{
     private final IManagerRepo managerRepo;
     private final IWareHouseRepo wareHouseRepo;
 
+    /**
+     *
+     * @param managerRepo
+     * @param wareHouseRepo
+     */
     public WareHouseImpService(IManagerRepo managerRepo, IWareHouseRepo wareHouseRepo) {
         this.managerRepo = managerRepo;
         this.wareHouseRepo = wareHouseRepo;
     }
 
+    /**
+     *
+     * @param wareHouseDTO
+     * @return
+     */
     @Override
     public WareHouse saveWarehouse(WareHouseDTO wareHouseDTO) {
 
@@ -35,6 +45,12 @@ public class WareHouseImpService implements IWareHouseService{
 
     }
 
+    /**
+     *
+     * @param wareHouseDTO
+     * @param manager
+     * @return
+     */
     private WareHouse buildProduct(WareHouseDTO wareHouseDTO, Manager manager){
         return WareHouse.builder()
                 .manager(manager)
