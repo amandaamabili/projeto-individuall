@@ -50,7 +50,7 @@ public class InBoundOrderController {
     public ResponseEntity<Object> updateInBoundOrder(@RequestBody @Valid InboundOrderRequestDTO updateOrder) throws Exception {
         InBoundOrder updatedResponse = service.updateInBoundOrder(updateOrder);
 
-        return new ResponseEntity<>(new InBoundOrderResponseDTO(updatedResponse), HttpStatus.CREATED);
+        return new ResponseEntity<>(updatedResponse, HttpStatus.CREATED);
 
     }
 }
