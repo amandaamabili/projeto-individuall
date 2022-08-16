@@ -36,7 +36,7 @@ public class InBoundOrderController {
     public ResponseEntity<Object> create(@RequestBody @Valid InboundOrderRequestDTO newOrder) throws Exception {
         InBoundOrder response = service.saveInBoundOrder(newOrder);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(new InBoundOrderResponseDTO(response));
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
     
