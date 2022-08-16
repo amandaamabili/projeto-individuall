@@ -41,7 +41,8 @@ Cada central de armazenamento deve ter:
 
 
 
-## Tecnologias utilizadas
+## Tecnologias 
+O projeto desenvolvido utiliza as seguintes tecnologias:
 
 * Maven
 * Java 11
@@ -50,12 +51,14 @@ Cada central de armazenamento deve ter:
 * Spring Open Api
 * Spring DevTools
 * Spring Validation
-* Lombok
-* Junit
-* Github actions - CI(Maven, docker)
-* Docker
-* Docker-compose
-* MySQL
+- [Lombok](  https://projectlombok.org/)
+- [Junit](https://junit.org/junit5/docs/current/user-guide/)
+- [Github actions](https://github.com/features/actions) - CI(Maven, docker)
+- [Docker](https://www.docker.com/)
+- [Docker-compose](https://docs.docker.com/compose/compose-file/compose-file-v3/)
+- [MySQL](https://www.mysql.com/)
+- [Swagger](https://swagger.io/)
+
 
 
 
