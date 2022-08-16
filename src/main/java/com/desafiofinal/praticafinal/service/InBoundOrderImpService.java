@@ -37,6 +37,12 @@ public class InBoundOrderImpService implements IinboundOrderService {
         this.productRepo = productRepo;
     }
 
+    /**
+     *
+     * @param inboundOrderRequestDTO
+     * @return
+     * @throws Exception
+     */
     @Transactional
     public InBoundOrder saveInBoundOrder (InboundOrderRequestDTO inboundOrderRequestDTO) throws Exception {
         var inBoundOrder = buildInboundOrder(inboundOrderRequestDTO, true);
@@ -45,6 +51,12 @@ public class InBoundOrderImpService implements IinboundOrderService {
         return inBoundOrderRepo.save(inBoundOrder);
     }
 
+    /**
+     *
+     * @param inBoundOrderRequestDTO
+     * @return
+     * @throws Exception
+     */
 
     public InBoundOrder updateInBoundOrder (InboundOrderRequestDTO inBoundOrderRequestDTO) throws Exception {
         var inBoundOrder = buildInboundOrder(inBoundOrderRequestDTO, false);
@@ -56,6 +68,12 @@ public class InBoundOrderImpService implements IinboundOrderService {
 
     }
 
+    /**
+     *
+     * @param dto
+     * @param isCreating
+     * @return
+     */
     private InBoundOrder buildInboundOrder(InboundOrderRequestDTO dto, boolean isCreating){
         Optional<InBoundOrder> foundInBoundOrder = inBoundOrderRepo.findById(dto.getOrderId());
         if(foundInBoundOrder.isPresent() && isCreating)
@@ -70,10 +88,22 @@ public class InBoundOrderImpService implements IinboundOrderService {
         return productRepo.findById(batchStockDTO.getProduct()).orElseThrow(() -> new RuntimeException("Product does ot exists"));
     }
 
+    /**
+     *
+     * @param sectorID
+     * @return
+     */
+
     private Sector getSector(long sectorID) {
         return sectorRepo.findById(sectorID).orElseThrow(() -> new RuntimeException("Sector does not exists"));
     }
 
+    /**
+     *
+     * @param inboundOrderRequestDTO
+     * @param inboundOrder
+     * @return
+     */
     private List<BatchStock> buildBatchStockList(InboundOrderRequestDTO inboundOrderRequestDTO, InBoundOrder inboundOrder) {
         return inboundOrderRequestDTO.getBatchStockList().stream().map(dto -> {
             Product product = getProduct(dto);
@@ -81,6 +111,11 @@ public class InBoundOrderImpService implements IinboundOrderService {
         }).collect(Collectors.toList());
     }
 
+    /**
+     *
+     * @param batchStockList
+     * @param inBoundOrder
+     */
     private void verifyBatchStock(List<BatchStock> batchStockList, InBoundOrder inBoundOrder)  {
         for(BatchStock responseStock : batchStockList) {
             Optional<BatchStock> foundBatch = batchStockRepo.findById(responseStock.getBatchId());

@@ -21,7 +21,11 @@ public class WareHouseController {
         this.service = service;
     }
 
-
+    /**
+     * Route used to insert into the database a new wareHouse
+     * @param wareHouseDTO
+     * @return
+     */
     @PostMapping
     public ResponseEntity<Object> insertWareHouse(@RequestBody WareHouseDTO wareHouseDTO){
         try {

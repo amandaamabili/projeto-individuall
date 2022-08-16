@@ -21,6 +21,11 @@ public class SectorImpService  implements  ISectorservice{
         this.sectorRepo = sectorRepo;
     }
 
+    /**
+     *
+     * @param sectordto
+     * @return
+     */
     @Override
     public Sector saveSector(SectorDTO sectordto) {
        var wareHouse = wareHouseRepo
@@ -30,6 +35,12 @@ public class SectorImpService  implements  ISectorservice{
         return sectorRepo.save(buildSector(sectordto, wareHouse) );
     }
 
+    /**
+     *
+     * @param sectordto
+     * @param wareHouse
+     * @return
+     */
     private Sector buildSector(SectorDTO sectordto, WareHouse wareHouse){
         return Sector.builder()
                 .category(sectordto.getCategory())

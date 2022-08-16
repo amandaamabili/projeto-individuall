@@ -20,6 +20,11 @@ public class ProductController {
         this.service = service;
     }
 
+    /**
+     * Route used to insert into the database a new product
+     * @param product HTML Response 201: Created
+     * @return
+     */
     @PostMapping
     public ResponseEntity<Object> insertProduct(@RequestBody ProductDTO product){
         try{

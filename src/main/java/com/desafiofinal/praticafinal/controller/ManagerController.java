@@ -20,9 +20,13 @@ public class ManagerController {
         this.managerService = managerService;
     }
 
-
+    /**
+     * Route used to insert into the database a new manager
+     * @param managerDTO
+     * @return HTML Response 201: Created
+     */
     @PostMapping
-    public ResponseEntity<Object> insertManager(@RequestBody ManagerDTO managerDTO){
+    public ResponseEntity<Object> insertManager(@RequestBody ManagerDTO managerDTO) {
         try{
             var response = managerService.saveManager(managerDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
