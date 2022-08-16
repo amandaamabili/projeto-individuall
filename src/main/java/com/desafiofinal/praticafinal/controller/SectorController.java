@@ -25,8 +25,12 @@ public class SectorController {
 
     @PostMapping
     public ResponseEntity<Object> insertSector(@RequestBody SectorDTO sectordto){
-        Sector response = sectorservice.saveSector(sectordto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        try{
+            Sector response = sectorservice.saveSector(sectordto);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        } catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 

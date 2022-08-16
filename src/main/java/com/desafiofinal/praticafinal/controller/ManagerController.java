@@ -23,8 +23,13 @@ public class ManagerController {
 
     @PostMapping
     public ResponseEntity<Object> insertManager(@RequestBody ManagerDTO managerDTO){
-        var response = managerService.saveManager(managerDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        try{
+            var response = managerService.saveManager(managerDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+
     }
 
 
