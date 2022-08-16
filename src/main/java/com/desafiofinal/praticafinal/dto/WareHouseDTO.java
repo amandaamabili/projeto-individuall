@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 
@@ -14,17 +17,12 @@ import java.util.List;
 @AllArgsConstructor
 public class WareHouseDTO {
 
-    private long wareHouseId;
-    private long id_manager;
-//    private List<Sector> sectorList;
+    @Positive
+    @Max(45)
+    private Long wareHouseId;
 
-//    public WareHouseDTO(WareHouse wareHouse) {
-//        this.wareHouseId = wareHouse.getWareHouseId();
-//        this.sectorList = wareHouse.getSectorList();
-//    }
-
-//    public <T> WareHouseDTO(long wareHouseId, List<Sector> sectorList) {
-//        this.wareHouseId =wareHouseId;
-//        this.sectorList = sectorList;
-//    }
+    @NotNull
+    @Positive
+    @Max(45)
+    private Long id_manager;
 }

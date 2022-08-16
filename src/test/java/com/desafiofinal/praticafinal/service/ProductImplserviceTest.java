@@ -48,9 +48,9 @@ public class ProductImplserviceTest {
                 "carme",
                 "frios",
                 new Date(),
-                12,
+                12D,
                 1L,
-                17 ));
+                17D ));
 
 
         Assertions.assertEquals(product.getProductName(), productCreated.getProductName());
