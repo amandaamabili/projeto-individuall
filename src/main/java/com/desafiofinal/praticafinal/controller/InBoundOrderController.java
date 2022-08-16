@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
+import javax.validation.Valid;
+
 /**
  * This class holds all endpoints related to inbound orders
  * @author Monica, Yago, Marina, Amanda
@@ -31,7 +33,7 @@ public class InBoundOrderController {
      */
 
     @PostMapping("/insert")
-    public ResponseEntity<Object> create(@RequestBody InboundOrderRequestDTO newOrder) throws Exception {
+    public ResponseEntity<Object> create(@RequestBody @Valid InboundOrderRequestDTO newOrder) throws Exception {
         InBoundOrder response = service.saveInBoundOrder(newOrder);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(new InBoundOrderResponseDTO(response));
@@ -45,7 +47,7 @@ public class InBoundOrderController {
      * @throws Exception ElementNotFoundException
      */
     @PutMapping("/update")
-    public ResponseEntity<Object> updateInBoundOrder(@RequestBody InboundOrderRequestDTO updateOrder) throws Exception {
+    public ResponseEntity<Object> updateInBoundOrder(@RequestBody @Valid InboundOrderRequestDTO updateOrder) throws Exception {
         InBoundOrder updatedResponse = service.updateInBoundOrder(updateOrder);
 
         return new ResponseEntity<>(new InBoundOrderResponseDTO(updatedResponse), HttpStatus.CREATED);

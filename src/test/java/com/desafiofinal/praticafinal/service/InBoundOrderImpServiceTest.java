@@ -3,6 +3,7 @@ package com.desafiofinal.praticafinal.service;
 import com.desafiofinal.praticafinal.dto.BatchStockDTO;
 import com.desafiofinal.praticafinal.dto.InboundOrderRequestDTO;
 import com.desafiofinal.praticafinal.dto.SectorDTO;
+import com.desafiofinal.praticafinal.dto.SectorRequestDTO;
 import com.desafiofinal.praticafinal.model.*;
 import com.desafiofinal.praticafinal.repository.IBatchStockRepo;
 import com.desafiofinal.praticafinal.repository.IProductRepo;

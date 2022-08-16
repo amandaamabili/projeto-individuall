@@ -12,24 +12,20 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SectorDTO {
-
+public class SectorRequestDTO {
+//
+//    @NotNull
+//    @Positive
     private Long sectorId;
 
-    @NotBlank(message = "Product name cannot be blank.")
-    @Pattern(regexp = "^[A-Z][a-z]*(?: [A-Z][a-z]*)*$",
-            message = "The product's name must begin with a capital letter.")
     private String category;
 
-    @NotNull
-    @Positive
     private Double capacity;
 
-    @NotNull(message = "WareHouse Id cannot be null.")
-    @Min(value = 0, message = "WareHouse Id must be a positive number.")
+
     private Long idWareHouse;
 
-    public SectorDTO(Sector sector) {
+    public SectorRequestDTO(Sector sector) {
         this.sectorId = sector.getSectorId();
         this.category = sector.getCategory();
         this.capacity = sector.getCapacity();

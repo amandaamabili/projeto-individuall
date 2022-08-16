@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/fresh-products/sector")
 public class SectorController {
@@ -29,7 +31,7 @@ public class SectorController {
      * @return HTML Response 201: Created
      */
     @PostMapping
-    public ResponseEntity<Object> insertSector(@RequestBody SectorDTO sectordto){
+    public ResponseEntity<Object> insertSector(@RequestBody @Valid SectorDTO sectordto){
         try{
             Sector response = sectorservice.saveSector(sectordto);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
