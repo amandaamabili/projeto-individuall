@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 import java.util.List;
 
@@ -13,11 +18,12 @@ import java.util.List;
 @AllArgsConstructor
 public class InboundOrderRequestDTO {
 
-    private long orderId;
+    private Long orderId;
+    @NotNull(message = "The date is not null.")
     private Date dateTime;
     private SectorDTO sector;
 
-    private List<BatchStockDTO> batchStockList;
+    private List< @Valid BatchStockDTO> batchStockList;
 
     public InboundOrderRequestDTO(long orderId, Date dateTime, SectorDTO sector) {
         this.orderId = orderId;
@@ -26,14 +32,8 @@ public class InboundOrderRequestDTO {
     }
 
     public long getSectorID(){
-        return sector.getSectorId();//todo incluir validação
+        return sector.getSectorId();
     }
 
-//    public static InBoundOrder convertDTOToInboundOrder(InboundOrderRequestDTO inboundOrderRequestDTO) {
-//        return InBoundOrder.builder()
-//                .orderId(inboundOrderRequestDTO.getOrderId())
-//                .dateTime(inboundOrderRequestDTO.getDateTime())
-//                .build();
-//    }
 
 }

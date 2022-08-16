@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/fresh-products/manager")
 
@@ -26,7 +28,7 @@ public class ManagerController {
      * @return HTML Response 201: Created
      */
     @PostMapping
-    public ResponseEntity<Object> insertManager(@RequestBody ManagerDTO managerDTO) {
+    public ResponseEntity<Object> insertManager(@RequestBody @Valid ManagerDTO managerDTO) {
         try{
             var response = managerService.saveManager(managerDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);

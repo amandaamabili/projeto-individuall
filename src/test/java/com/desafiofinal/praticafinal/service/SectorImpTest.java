@@ -44,7 +44,7 @@ public class SectorImpTest {
 
         var service = new SectorImpService(wareHouseRepo, sectorRepo);
         var sectorCreated = service.saveSector(
-                new SectorDTO(1L, "FRIO", 12,  1L));
+                new SectorDTO(1L, "FRIO", 12D,  1L));
 
 
         Assertions.assertEquals(sector.getSectorId(), sectorCreated.getSectorId());
