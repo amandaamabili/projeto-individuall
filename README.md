@@ -1,5 +1,15 @@
 # Desafio projeto integrador individual
 
+- [Descrição](#descrico)
+- [Tecnologias](#tech)
+- [Como Utilizar](#setting)
+- [Requisitos](#requisito)
+- [Requisição](#requisicao)
+- [Postman](#postman)
+- [Swagger](#swagger)
+
+
+<a id="descrico"></a>
 # Descrição
 
 Esse projeto implementa o backend de uma aplicação que permite cadastrar no marketplace de frios produtos, setores de localização, vendedores, 
@@ -40,18 +50,14 @@ Cada central de armazenamento deve ter:
 
 
 
-
+<a id="tech"></a>
 ## Tecnologias 
 O projeto desenvolvido utiliza as seguintes tecnologias:
 
-* Maven
-* Java 11
-* Spring Boot
-* Spring Web
-* Spring Open Api
-* Spring DevTools
-* Spring Validation
-- [Lombok](  https://projectlombok.org/)
+- [Maven](https://maven.apache.org/)
+- [Java](https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html)
+- [Spring](https://spring.io/)
+- [Lombok](https://projectlombok.org/)
 - [Junit](https://junit.org/junit5/docs/current/user-guide/)
 - [Github actions](https://github.com/features/actions) - CI(Maven, docker)
 - [Docker](https://www.docker.com/)
@@ -59,21 +65,63 @@ O projeto desenvolvido utiliza as seguintes tecnologias:
 - [MySQL](https://www.mysql.com/)
 - [Swagger](https://swagger.io/)
 
-
-
-
+<a id="requisito"></a>
 ## Requisitos para rodar o projeto:
 
-* Docker
-* Docker-compose
+- [Docker](https://docker-docs.netlify.app/docker-for-mac/install/#where-to-go-next)
+- [Docker-compose](https://docker-docs.netlify.app/compose/install/)
 
+```bash
+#Após os requisitos instalados, é possível inicializar o projeto
+```
+<a id="setting"></a>
+## Como utilizar:
+
+```bash
+# Clone o Repositório
+$ git clone https://github.com/amandaamabili/projeto-individuall.git
+```
+```bash
+# Após estar na pasta do projeto, escreva o comando no terminal para buildar o container
+$ docker-compose up -d --build
+```
+```bash
+# Inicialize o projeto na IDE na porta 8080
+```
+
+### Inicie as requisições no postman
+[Postman](#postman)
+
+### Passos adicionais
+```bash
+# Para pausar o container
+$ docker-compose down
+```
+```bash
+# Para subir o container novamente
+$ docker-compose up -d
+```
+<a id="requisicao"></a>
 ## Requisições
 
+```sh
+(POST)   http://localhost:8080/api/v1/fresh-products/product
+(POST)   http://localhost:8080/api/v1/fresh-products/seller
+(POST)   http://localhost:8080/api/v1/fresh-products/sector
+(POST)   http://localhost:8080/api/v1/fresh-products/manager
+(POST)   http://localhost:8080/api/v1/fresh-products/warehouse
+(GET)    http://localhost:8080/api/v1/fresh-products/product/count?productName=Banana
+
+   ```
+ -Para maiores detalhes sobre retorno dos endpoints, encontra-se no link do swagger após o projeto rodando na porta 8080.
+ 
+<a id="postman"></a>
 ### Postman
 Coleção disponibilizada no postman.
 
-https://www.getpostman.com/collections/99f2cb2bafc3082f2302 
+https://www.getpostman.com/collections/99f2cb2bafc3082f2302
 
+<a id="swagger"></a>
 ### Swagger
 
 Endereço: http://localhost:8080/swagger-ui/index.html
