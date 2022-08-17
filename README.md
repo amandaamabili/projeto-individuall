@@ -110,6 +110,8 @@ $ docker-compose up -d
 (POST)   http://localhost:8080/api/v1/fresh-products/sector
 (POST)   http://localhost:8080/api/v1/fresh-products/manager
 (POST)   http://localhost:8080/api/v1/fresh-products/warehouse
+(GET)    http://localhost:8080/api/v1/fresh-products/product/count?productName=Banana
+
    ```
  -Para maiores detalhes sobre retorno dos endpoints, encontra-se no link do swagger após o projeto rodando na porta 8080.
  
@@ -117,7 +119,7 @@ $ docker-compose up -d
 ### Postman
 Coleção disponibilizada no postman.
 
-https://www.getpostman.com/collections/99f2cb2bafc3082f2302 
+https://www.getpostman.com/collections/99f2cb2bafc3082f2302
 
 <a id="swagger"></a>
 ### Swagger
