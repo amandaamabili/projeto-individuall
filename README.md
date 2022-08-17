@@ -120,7 +120,6 @@ $ docker-compose up -d
 Coleção disponibilizada no postman.
 
 https://www.getpostman.com/collections/99f2cb2bafc3082f2302
-
 <a id="swagger"></a>
 ### Swagger
 
