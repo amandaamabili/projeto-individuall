@@ -35,10 +35,15 @@ public class ProductImplService implements IProductService{
         return productRepo.save(buildProduct(product, seller));
     }
 
+    /**
+     *
+     * @param productName
+     * @return
+     */
     @Override
     public Long countProductByNameAtStock(String productName) {
         var product = productRepo.getAllByProductName(productName)
-                .orElseThrow(() -> new ElementNotFoundException("Product does not exist"));
+                .orElseThrow(() -> new ElementNotFoundException("Product name does not exist"));
         return
                 product
                 .stream().
