@@ -14,6 +14,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class InBoundOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,7 @@ public class InBoundOrder {
 
     private Date dateTime;
 
-    @OneToMany (mappedBy = "inBoundOrder", cascade = CascadeType.PERSIST)
+    @OneToMany (mappedBy = "inBoundOrder", cascade = CascadeType.ALL)
     private List<BatchStock> batchStockList;
 
     @ManyToOne
