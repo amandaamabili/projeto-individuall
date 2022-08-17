@@ -104,6 +104,15 @@ $ docker-compose up -d
 <a id="requisicao"></a>
 ## Requisições
 
+```sh
+(POST)   http://localhost:8080/api/v1/fresh-products/product
+(POST)   http://localhost:8080/api/v1/fresh-products/seller
+(POST)   http://localhost:8080/api/v1/fresh-products/sector
+(POST)   http://localhost:8080/api/v1/fresh-products/manager
+(POST)   http://localhost:8080/api/v1/fresh-products/warehouse
+   ```
+ -Para maiores detalhes sobre retorno dos endpoints, encontra-se no link do swagger após o projeto rodando na porta 8080.
+ 
 <a id="postman"></a>
 ### Postman
 Coleção disponibilizada no postman.
