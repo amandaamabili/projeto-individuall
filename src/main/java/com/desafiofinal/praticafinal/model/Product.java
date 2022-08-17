@@ -30,6 +30,6 @@ public class Product {
 
     private double bulk;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.REFRESH)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<BatchStock> batchList;
 }

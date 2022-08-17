@@ -44,11 +44,15 @@ public class InBoundOrderImpService implements IinboundOrderService {
      * @throws Exception
      */
     @Transactional
-    public InBoundOrder saveInBoundOrder (InboundOrderRequestDTO inboundOrderRequestDTO) throws Exception {
+    public InBoundOrderResponseDTO saveInBoundOrder (InboundOrderRequestDTO inboundOrderRequestDTO) throws Exception {
         var inBoundOrder = buildInboundOrder(inboundOrderRequestDTO, true);
         var batchStock = buildBatchStockList(inboundOrderRequestDTO, inBoundOrder);
+
         inBoundOrder.setBatchStockList(batchStock);
-        return inBoundOrderRepo.save(inBoundOrder);
+        var savedOrder = inBoundOrderRepo.save(inBoundOrder);
+        batchStock.forEach((batchStock1 -> batchStock1.setInBoundOrder(savedOrder)));
+        batchStockRepo.saveAll(batchStock);
+        return new InBoundOrderResponseDTO(savedOrder);
     }
 
     /**
@@ -85,7 +89,7 @@ public class InBoundOrderImpService implements IinboundOrderService {
     }
 
     private Product getProduct(BatchStockDTO batchStockDTO) {
-        return productRepo.findById(batchStockDTO.getProduct()).orElseThrow(() -> new RuntimeException("Product does ot exists"));
+        return productRepo.findById(batchStockDTO.getProduct()).orElseThrow(() -> new ElementNotFoundException("Product does not exists"));
     }
 
     /**
@@ -95,7 +99,7 @@ public class InBoundOrderImpService implements IinboundOrderService {
      */
 
     private Sector getSector(long sectorID) {
-        return sectorRepo.findById(sectorID).orElseThrow(() -> new RuntimeException("Sector does not exists"));
+        return sectorRepo.findById(sectorID).orElseThrow(() -> new ElementNotFoundException("Sector does not exists"));
     }
 
     /**

@@ -2,6 +2,7 @@ package com.desafiofinal.praticafinal.service;
 
 import com.desafiofinal.praticafinal.dto.ProductDTO;
 import com.desafiofinal.praticafinal.exception.ElementNotFoundException;
+import com.desafiofinal.praticafinal.model.BatchStock;
 import com.desafiofinal.praticafinal.model.Product;
 import com.desafiofinal.praticafinal.model.Seller;
 import com.desafiofinal.praticafinal.repository.IProductRepo;
@@ -32,6 +33,23 @@ public class ProductImplService implements IProductService{
                 .orElseThrow(() -> new ElementNotFoundException("Seller does not exist"));
 
         return productRepo.save(buildProduct(product, seller));
+    }
+
+    /**
+     *
+     * @param productName
+     * @return
+     */
+    @Override
+    public Long countProductByNameAtStock(String productName) {
+        var product = productRepo.getAllByProductName(productName)
+                .orElseThrow(() -> new ElementNotFoundException("Product name does not exist"));
+        return
+                product
+                .stream().
+                        flatMap(p -> p.getBatchList().stream())
+                        .map(BatchStock::getCurrentQuantity)
+                        .reduce(0L, Long::sum);
     }
 
     /**

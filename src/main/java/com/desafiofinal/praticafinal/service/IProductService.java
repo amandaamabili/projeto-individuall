@@ -5,4 +5,7 @@ import com.desafiofinal.praticafinal.model.Product;
 
 public interface IProductService {
     Product saveProduct(ProductDTO product);
+
+    Long countProductByNameAtStock(String productName);
+
 }

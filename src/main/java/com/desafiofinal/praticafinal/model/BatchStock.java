@@ -11,10 +11,11 @@ import java.util.Date;
 
 @Entity
 @Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"product", "inBoundOrder"})
+
 public class BatchStock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +31,9 @@ public class BatchStock {
 
     @ManyToOne
     @JoinColumn (name = "id_inboundorder", nullable = true)
-    @JsonIgnoreProperties("batchStockList")
     private InBoundOrder inBoundOrder;
 
     @ManyToOne (cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JsonIgnore
     @JoinColumn (name = "id_product")
     private Product product;
 

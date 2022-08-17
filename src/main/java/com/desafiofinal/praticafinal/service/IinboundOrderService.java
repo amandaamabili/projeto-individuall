@@ -6,6 +6,6 @@ import com.desafiofinal.praticafinal.dto.InboundOrderRequestDTO;
 import com.desafiofinal.praticafinal.model.InBoundOrder;
 
 public interface IinboundOrderService {
-    InBoundOrder saveInBoundOrder(InboundOrderRequestDTO newOrder) throws Exception;
+    InBoundOrderResponseDTO saveInBoundOrder(InboundOrderRequestDTO newOrder) throws Exception;
     InBoundOrder updateInBoundOrder(InboundOrderRequestDTO updateOrder) throws Exception;
 }
